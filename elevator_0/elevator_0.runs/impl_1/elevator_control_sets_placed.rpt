@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Mon Apr 20 17:52:12 2026
+| Date         : Mon Apr 20 18:05:20 2026
 | Host         : LAPTOP-21A831KV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file elevator_control_sets_placed.rpt
 | Design       : elevator
@@ -48,9 +48,9 @@ Table of Contents
 +-------------------------------+------------------------------+---------------------------------+------------------+----------------+
 |          Clock Signal         |         Enable Signal        |         Set/Reset Signal        | Slice Load Count | Bel Load Count |
 +-------------------------------+------------------------------+---------------------------------+------------------+----------------+
-|  scan_clk_BUFG                | led[3]_i_1_n_0               |                                 |                1 |              1 |
-|  scan_clk_BUFG                | led[2]_i_1_n_0               |                                 |                1 |              1 |
 |  scan_clk_BUFG                | led[1]_i_1_n_0               |                                 |                1 |              1 |
+|  scan_clk_BUFG                | led[2]_i_1_n_0               |                                 |                1 |              1 |
+|  scan_clk_BUFG                | led[3]_i_1_n_0               |                                 |                1 |              1 |
 |  scan_clk_BUFG                | led[0]_i_1_n_0               |                                 |                1 |              1 |
 |  current_floor_reg[1]_i_2_n_0 |                              |                                 |                1 |              2 |
 |  clk_IBUF_BUFG                |                              |                                 |                1 |              2 |
@@ -63,11 +63,11 @@ Table of Contents
 |  scan_clk_BUFG                |                              | FSM_sequential_state[3]_i_2_n_0 |                6 |              6 |
 |  scan_clk_BUFG                | disp_data_right1[3]_i_1_n_0  |                                 |                4 |              6 |
 |  scan_clk_BUFG                | DOOR_CLOSE_1s[15]_i_2_n_0    | DOOR_CLOSE_1s[15]_i_1_n_0       |                5 |             16 |
-|  scan_clk_BUFG                | DOOR_OPEN_1s[15]_i_2_n_0     | DOOR_OPEN_1s[15]_i_1_n_0        |                5 |             16 |
 |  scan_clk_BUFG                | DOOR_WAIT_1s[15]_i_2_n_0     | DOOR_WAIT_1s[15]_i_1_n_0        |                5 |             16 |
+|  scan_clk_BUFG                | DOOR_OPEN_1s[15]_i_2_n_0     | DOOR_OPEN_1s[15]_i_1_n_0        |                5 |             16 |
 |  scan_clk_BUFG                | MOVE_DOWN_3s[15]_i_2_n_0     | MOVE_DOWN_3s[15]_i_1_n_0        |                5 |             16 |
-|  scan_clk_BUFG                | MOVE_UP_3s[15]_i_1_n_0       | FSM_sequential_state[3]_i_2_n_0 |                6 |             16 |
 |  scan_clk_BUFG                | POWER_ON_INIT_1s[15]_i_1_n_0 | FSM_sequential_state[3]_i_2_n_0 |                7 |             16 |
+|  scan_clk_BUFG                | MOVE_UP_3s[15]_i_1_n_0       | FSM_sequential_state[3]_i_2_n_0 |                6 |             16 |
 |  scan_clk_BUFG                | debounce_cnt[15]_i_1_n_0     | FSM_sequential_state[3]_i_2_n_0 |                7 |             16 |
 |  scan_clk_BUFG                | btn_reg[15]_i_1_n_0          | FSM_sequential_state[3]_i_2_n_0 |                3 |             16 |
 |  clk_IBUF_BUFG                |                              | FSM_sequential_state[3]_i_2_n_0 |                5 |             17 |

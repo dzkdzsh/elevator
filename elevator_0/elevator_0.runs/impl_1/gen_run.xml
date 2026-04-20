@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1776678675">
+<GenRun Id="impl_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1776679467">
   <File Type="PWROPT-DCP" Name="elevator_pwropt.dcp"/>
   <File Type="ROUTE-PWR" Name="elevator_power_routed.rpt"/>
   <File Type="PA-TCL" Name="elevator.tcl"/>
@@ -104,5 +104,5 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="dynamic_led3_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="dynamic_led3_1"/>
 </GenRun>

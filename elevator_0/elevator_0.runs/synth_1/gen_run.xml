@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1776678675">
+<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1776679467">
   <File Type="PA-TCL" Name="elevator.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="elevator_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="elevator_reports.tcl"/>
@@ -42,5 +42,5 @@
     </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="dynamic_led3_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="dynamic_led3_1"/>
 </GenRun>

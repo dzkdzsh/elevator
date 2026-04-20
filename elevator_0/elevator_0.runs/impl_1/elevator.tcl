@@ -66,6 +66,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a35tftg256-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -75,7 +76,7 @@ set rc [catch {
   set_property ip_output_repo D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   add_files -quiet D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/elevator.dcp
-  read_ip -quiet d:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/ip/dynamic_led3_0_2/dynamic_led3_0.xci
+  read_ip -quiet d:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/ip/dynamic_led3_1_3/dynamic_led3_1.xci
   read_xdc D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc
   link_design -top elevator -part xc7a35tftg256-1
   close_msg_db -file init_design.pb

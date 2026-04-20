@@ -1,122 +1,63 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2026/04/19 20:17:38
-// Design Name: 
-// Module Name: elevator
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module elevator(
-
     input  wire clk,          // 系统时钟 50MHz
     input  wire rst_n,        // 异步复位，低电平有效
-    // 矩阵键盘引脚
-    output reg  [3:0] row,    // 行扫描输出 (K3, M6, P10, R10) - 输出低电平选中某行
-    input  wire [3:0] col,    // 列输入 (R12, T12, R11, T10) - 输入，低电平表示按键按下
-    // 蜂鸣器
-    output wire  buzzer,        // 蜂鸣器驱动引脚 (L2)
-    input sw0,
+    output reg  [3:0] row,    // 行扫描输出
+    input  wire [3:0] col,    // 列输入
+    output wire buzzer,       
+    input sw0,                // 启动开关 (0:关机, 1:开机)
+    input sw11,               // 复位开关 (0:立即回1楼, 1:正常)
     output reg [15:0] led,
-    
     output [7:0] seg,
     output [2:0] dig
 );
 
+    // 数码管显示字符定义
+    localparam SEG_alphabet_O = 8'h0;  // 数字0
+    localparam SEG_alphabet_N = 8'h14; // 小写n
+    localparam SEG_DP   = 8'h10;       // 小数点
+    localparam SEG_UP   = 8'h11;       // 上行 U
+    localparam SEG_DOWN = 8'h12;       // 下行 d
+    localparam SEG_IDLE = 8'h13;       // 待机 -
+    localparam SEG_OFF  = 8'hff;       // 全灭
 
+    reg [8:0] disp_data_right0;
+    reg [8:0] disp_data_right1;
+    reg [8:0] disp_data_right2;
 
-    localparam SEG_alphabet_O = 8'h0;  
-    localparam SEG_alphabet_N = 8'h14; 
-    localparam SEG_DP = 8'h10;
-    localparam SEG_UP = 8'h11;  
-    localparam SEG_DOWN = 8'h12; 
-    localparam SEG_IDLE = 8'h13;
-    reg [8:0]disp_data_right0;
-    reg [8:0]disp_data_right1;
-    reg [8:0]disp_data_right2;
-
-        
-    dynamic_led3_0 uu0(
-    .clk(clk),
-    .disp_data_right0(disp_data_right0),
-    .disp_data_right1(disp_data_right1),
-    .disp_data_right2(disp_data_right2),
-    .seg(seg),
-    .dig(dig)
+    dynamic_led3_1 uu0(
+        .clk(clk),
+        .disp_data_right0(disp_data_right0),
+        .disp_data_right1(disp_data_right1),
+        .disp_data_right2(disp_data_right2),
+        .seg(seg),
+        .dig(dig)
     );   
 
-
-
-
-
-    // 音阶频率对应计数周期 (系统时钟 50MHz)
-    localparam DO_CYCNT = 47780;  // 523Hz
-    localparam RE_CYCNT = 42580;  // 587Hz
-    localparam MI_CYCNT =211;  // 659Hz
-    localparam FA_CYCNT = 35820;  // 698Hz
-    localparam SOL_CYCNT = 31890; // 784Hz
-    localparam LA_CYCNT = 28410;  // 880Hz
-    localparam SI_CYCNT = 25300;  // 988Hz
-    localparam NO_KEY_CYCNT = 0;   // 无按键
+    // FSM 状态定义
+    localparam S_POWER_OFF      = 4'd0;
+    localparam S_POWER_ON_INIT  = 4'd1;
+    localparam S_RESET_TO_1F    = 4'd2;
+    localparam S_IDLE_1F        = 4'd3;
+    localparam S_IDLE_2F        = 4'd4;
+    localparam S_MOVE_UP        = 4'd5;
+    localparam S_MOVE_DOWN      = 4'd6;
     
-        // 状态编码 (需要扩展位宽以支持更多状态)
-    localparam POWER_OFF     = 4'b0000;
-    localparam POWER_ON_INIT = 4'b0001;
-    localparam IDLE          = 4'b0010;
-    localparam DEBOUNCE      = 4'b0011;
-    localparam DOOR_OPEN     = 4'b0100;
-    localparam DOOR_WAIT     = 4'b0101;
-    localparam DOOR_CLOSE    = 4'b0110;
-    localparam MOVE_UP       = 4'b0111;
-    localparam MOVE_DOWN     = 4'b1000;
-    localparam ARRIVE        = 4'b1001;
-    localparam PLAY        = 4'b1010;
-    
-        
-    reg [4:0] state, next_state;
-    reg [15:0] btn_reg;           // 16位按键寄存器，存储所有按键状态
-    reg [23:0] cycle_cnt;         // 半周期计数值
-    reg [15:0] debounce_cnt;      // 消抖计数器
-    reg [23:0] buzzer_cnt;        // 蜂鸣器计数器
-    reg buzzer_reg;               // 蜂鸣器内部寄存器
-    reg [2:0]target_floor;
-    reg [2:0] current_floor;
-    // 行扫描相关寄存器
-    reg [1:0] scan_cnt;  // 行扫描计数器：0,1,2,3
-    reg [15:0] btn_temp;          // 临时按键寄存器
-    
-    // ============================================================
-    // 矩阵键盘扫描模块 (1kHz扫描时钟)
-    // 工作原理：
-    // 1. 行输出依次输出低电平（0001 -> 0010 -> 0100 -> 1000 -> 循环）
-    // 2. 当某行输出低电平时，读取列输入
-    // 3. 如果某列为低电平，表示该行该列的按键被按下
-    // 4. btn_reg中对应位为0表示按键按下，1表示未按下
-    // ============================================================
-    
-    // 产生1kHz扫描时钟
+    reg [3:0] state, next_state;
+    reg [3:0] mem_state; // 记忆楼层状态
+
+    // 矩阵扫描相关寄存器
+    reg [1:0] scan_cnt;
+    reg [15:0] btn_temp;
+    reg [15:0] btn_reg;
+    reg [15:0] btn_reg_last;
+    wire [15:0] btn_fall = ~btn_reg & btn_reg_last; // 边缘检测，按下的瞬间产生一个脉冲
+
+    // 时钟分频生成 1kHz 扫描时钟
     reg [15:0] scan_clk_cnt;
     reg scan_clk;
-    reg [15:0] POWER_ON_INIT_1s;
-    reg [15:0] DOOR_OPEN_1s ;
-    reg [15:0]DOOR_WAIT_1s ;
-    reg [15:0]DOOR_CLOSE_1s ;
-    reg [15:0]MOVE_UP_3s ;
-    reg [15:0]MOVE_DOWN_3s ;
-    localparam SCAN_CLK_DIV = 25000;  // 50MHz / 50000/2=25000 = 1kHz
+    localparam SCAN_CLK_DIV = 25000;
     
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
@@ -132,319 +73,200 @@ module elevator(
         end
     end
     
-    //上升沿，行扫描计数器
+    // 行扫描
     always @(posedge scan_clk or negedge rst_n) begin
-        if (!rst_n) begin
-            scan_cnt <= 2'd0;
-        end else begin
-            if (scan_cnt == 2'd3)
-                scan_cnt <= 2'd0;
-            else
-                scan_cnt <= scan_cnt + 1'b1;
-        end
+        if (!rst_n) scan_cnt <= 2'd0;
+        else scan_cnt <= (scan_cnt == 2'd3) ? 2'd0 : scan_cnt + 1'b1;
     end
-    // 行输出
+
     always @(*) begin
         case (scan_cnt)
-            2'd0: row = 4'b1110;  // 第1行
-            2'd1: row = 4'b1101;  // 第2行
-            2'd2: row = 4'b1011;  // 第3行
-            2'd3: row = 4'b0111;  // 第4行
+            2'd0: row = 4'b1110;
+            2'd1: row = 4'b1101;
+            2'd2: row = 4'b1011;
+            2'd3: row = 4'b0111;
             default: row = 4'b1110;
         endcase
     end
     
-    // 锁存列值 (使用1kHz扫描时钟的上升沿)
-    // col输入：低电平表示该列有按键按下
+    // 锁存列输入
     always @(posedge scan_clk or negedge rst_n) begin
         if (!rst_n) begin
-            btn_temp <= 16'hFFFF;  // 初始化为全1（无按键按下）
+            btn_temp <= 16'hFFFF;
+            btn_reg <= 16'hFFFF;
+            btn_reg_last <= 16'hFFFF;
         end else begin
             case (scan_cnt)
-                2'd0: btn_temp[3:0]   = col;   // 第1行，存到 btn[3:0]
-                2'd1: btn_temp[7:4]   = col;   // 第2行，存到 btn[7:4]
-                2'd2: btn_temp[11:8]  = col;   // 第3行，存到 btn[11:8]
-                2'd3: btn_temp[15:12] = col;   // 第4行，存到 btn[15:12]
-                default: btn_temp = btn_temp;
+                2'd0: btn_temp[3:0]   <= col;
+                2'd1: btn_temp[7:4]   <= col;
+                2'd2: btn_temp[11:8]  <= col;
+                2'd3: btn_temp[15:12] <= col;
             endcase
+            // 完成一轮扫描后更新
+            if (scan_cnt == 2'd3) begin
+                btn_reg_last <= btn_reg;
+                btn_reg <= btn_temp; 
+            end
         end
     end
     
-//     按键寄存器更新 (在每个完整的扫描周期后更新)
+    // ============================================================
+    // 核心 FSM 设计 (使用 1kHz = 1ms 的时钟驱动)
+    // ============================================================
+    
+    reg [15:0] run_timer_ms; // 毫秒级计时器 (0-2999) 对应 0.0s - 2.9s
+    reg req_up;              // 上行请求记忆
+    reg req_down;            // 下行请求记忆
+
+    // 1. 状态跳转同步逻辑
     always @(posedge scan_clk or negedge rst_n) begin
         if (!rst_n) begin
-            btn_reg <= 16'hFFFF;  // 初始化为全1（无按键按下）
+            state <= S_POWER_OFF;
+        end else if (!sw11 && state != S_RESET_TO_1F) begin
+            // 最高优先级：sw11硬复位，直接回1F
+            state <= S_RESET_TO_1F;
+        end else if (!sw0 && state != S_POWER_OFF && state != S_RESET_TO_1F) begin
+            // 次高优先级：sw0关机
+            state <= S_POWER_OFF;
         end else begin
-            if (scan_cnt == 2'd3) begin
-                // 扫描完第4行时，更新按键寄存器
-                btn_reg <= btn_temp;
-            end
+            state <= next_state;
         end
     end
-    
-    // ============================================================
-    // 直接根据btn_reg计算cycle_cnt的组合逻辑
-    // btn_reg中某位为0表示该按键被按下
-    // ============================================================
+
+    // 2. 次态计算逻辑 (组合逻辑)
     always @(*) begin
-        // 默认无按键
-        cycle_cnt = NO_KEY_CYCNT;
-        
-        // 检查第1行 (btn_reg[3:0])
-        if (~btn_reg[0]) target_floor = 1;   // 第1行第1列 -> do
-       
-        else if (~btn_reg[12]) target_floor = 2;   // 第1行第3列 -> mi
-        else if (~btn_reg[3]) target_floor = 1;    // 第1行第4列 -> fa
-        
-        // 检查第2行 (btn_reg[7:4])
-  
-        else if (~btn_reg[15]) target_floor = 2;    // 第2行第2列 -> la
-       
-        // 第2行第4列及其他按键忽略（无声音）
-    end
-    
-    // 检查是否有按键按下 (只要有一位为0表示有按键按下)
-    wire key_pressed = (btn_reg != 16'hFFFF);
-    
-    // ============================================================
-    // 三段式状态机
-    // ============================================================
-    
-    // 第一段：状态寄存器 (使用1kHz扫描时钟)
-    always @(posedge scan_clk or negedge rst_n) begin
-        if (!rst_n)
-            state <= POWER_OFF;
-        else if (!sw0)
-            state <= POWER_OFF;
-        else 
-            state <= next_state;
-    end
-    
-     // 第二段：下一状态判断 (组合逻辑)
-    always @(*) begin
-        next_state = state; // 默认保持当前状态
+        next_state = state; 
         case (state)
-
-            POWER_OFF: begin
-                if (sw0)
-                    next_state = POWER_ON_INIT;
-                else
-                    next_state = POWER_OFF;
+            S_POWER_OFF: begin
+                if (sw0) next_state = S_POWER_ON_INIT;
             end
-
-            POWER_ON_INIT: begin
-                if ( POWER_ON_INIT_1s >=1000)
-                    next_state = IDLE;
-                else
-                    next_state = POWER_ON_INIT;
+            S_POWER_ON_INIT: begin
+                if (run_timer_ms >= 1000) 
+                    next_state = mem_state; // 恢复楼层记忆
             end
-
-            IDLE: begin
-                if (key_pressed)
-                    next_state = DEBOUNCE;
-                else
-                    next_state = IDLE;
+            S_RESET_TO_1F: begin
+                // sw11 恢复高电平，且到达1楼(假设要跑够时间或者立刻到，这里给3秒运行)
+                if (sw11 && run_timer_ms >= 2999) 
+                    next_state = S_IDLE_1F;
             end
-
-            DEBOUNCE: begin
-                if (debounce_cnt >= 20-1)
-                    if(target_floor > current_floor)
-                    next_state = MOVE_UP;
-                    else if (target_floor < current_floor)
-                    next_state = MOVE_DOWN;
-                    else
-                    next_state = DOOR_OPEN;
-                else
-                    next_state = DEBOUNCE;
+            S_IDLE_1F: begin
+                if (req_up) next_state = S_MOVE_UP;
             end
-
-            DOOR_OPEN: begin
-                if (DOOR_OPEN_1s >= 1000)
-                    next_state = DOOR_WAIT;
-                else
-                    next_state = DOOR_OPEN;
+            S_IDLE_2F: begin
+                if (req_down) next_state = S_MOVE_DOWN;
             end
-
-            DOOR_WAIT: begin
-                if (DOOR_WAIT_1s >= 1000)
-                    next_state = DOOR_CLOSE;
-                else
-                    next_state = DOOR_WAIT;
+            S_MOVE_UP: begin
+                if (run_timer_ms >= 2999) begin
+                    if (req_down) next_state = S_MOVE_DOWN;
+                    else next_state = S_IDLE_2F;
+                end
             end
-
-            DOOR_CLOSE: begin
-                if (DOOR_CLOSE_1s >= 1000)
-                    if(target_floor > current_floor)
-                next_state = MOVE_UP;
-                else if (target_floor < current_floor)
-                next_state = MOVE_DOWN;
-                else
-                next_state = IDLE;
-                
-                else
-                    next_state = DOOR_CLOSE;
+            S_MOVE_DOWN: begin
+                if (run_timer_ms >= 2999) begin
+                    if (req_up) next_state = S_MOVE_UP;
+                    else next_state = S_IDLE_1F;
+                end
             end
-
-            MOVE_UP: begin
-                if (MOVE_UP_3s >= 3000)
-                    next_state = ARRIVE;
-                else
-                    next_state = MOVE_UP;
-                    current_floor = 2;
-                    
-            end
-
-            MOVE_DOWN: begin
-                if (MOVE_DOWN_3s >= 3000)
-                    next_state = ARRIVE;
-                else
-                    next_state = MOVE_DOWN;
-                    current_floor = 1;
-            end
-
-            ARRIVE: begin
-
-                    next_state = DOOR_OPEN;
-
-
-            end
-
-            default: next_state = POWER_OFF;
+            default: next_state = S_POWER_OFF;
         endcase
     end
 
-    
-    // 第三段：状态输出逻辑 (使用1kHz扫描时钟)
+    // 3.状态输出逻辑 & 并发记忆机制 (时序逻辑)
     always @(posedge scan_clk or negedge rst_n) begin
         if (!rst_n) begin
-            debounce_cnt <= 16'd0;
-            POWER_ON_INIT_1s <= 16'd0;
-
-            MOVE_UP_3s <= 16'd0;
-            
-            target_floor <= 2'd1;
-           
-        
-                        
+            run_timer_ms <= 0;
+            req_up <= 0; req_down <= 0;
+            led <= 16'b0;
+            mem_state <= S_IDLE_1F;
+            disp_data_right0 <= SEG_OFF;
+            disp_data_right1 <= SEG_OFF;
+            disp_data_right2 <= SEG_OFF;
         end 
         else begin
-            case (state)
-        
-                POWER_OFF: begin
-                    debounce_cnt <= 16'd0;
-                    POWER_ON_INIT_1s <= 16'd0;
-                    DOOR_OPEN_1s <= 16'd0;
-                    DOOR_WAIT_1s <= 16'd0;
-                    DOOR_CLOSE_1s <= 16'd0;
-                    MOVE_UP_3s <= 16'd0;
-                    MOVE_DOWN_3s <= 16'd0;
-                    
-                    disp_data_right2 <= SEG_alphabet_O;
-                    disp_data_right1 <= 8'hf;
-                    disp_data_right0 <= 8'hf;
-                    
-                    led[15] <= 1'b1; // 点亮关机灯
-                    led[14] <= 1'b0; // 必须显式熄灭开机灯！
-                end
-        
-                POWER_ON_INIT: begin
-                    POWER_ON_INIT_1s <= POWER_ON_INIT_1s + 1'b1;
-                    
-                    disp_data_right2 <= SEG_alphabet_O;
-                    disp_data_right1 <= SEG_alphabet_N;
-                    disp_data_right0 <= 8'hff;
-                    
-                    led[15] <= 1'b0; // 离开关机态，必须显式熄灭关机灯！
-                    led[14] <= 1'b1; // 点亮开机初始化灯
-                end
-        
-                    IDLE: begin
-                    
-                    led = 16'b0;
-                    
-                    disp_data_right2 <= SEG_IDLE;
-                    disp_data_right1 <= 8'hff;
-                    disp_data_right0 <= 8'hff;
-                    end
-        
-                    DEBOUNCE: begin
-                         debounce_cnt <= debounce_cnt + 1'b1;
-                    end
-        
-                    DOOR_OPEN: begin
-                        DOOR_OPEN_1s<= DOOR_OPEN_1s + 1'b1;
-                    end
-        
-                    DOOR_WAIT: begin
-                     DOOR_WAIT_1s<= DOOR_WAIT_1s + 1'b1;
-                    end
-        
-                    DOOR_CLOSE: begin
-                        DOOR_CLOSE_1s<= DOOR_CLOSE_1s + 1'b1;
-                    end
-        
-                    MOVE_UP: begin
-                       MOVE_UP_3s<= MOVE_UP_3s + 1'b1;
-                 if((~btn_reg[15])&&(debounce_cnt >= 20-1))
-                 led[3] <= 1'b1 ;
-                 else if ((~btn_reg[12])&&(debounce_cnt >= 20-1))
-                 led[1] <= 1'b1 ;
-                 
-                 disp_data_right2 <= SEG_UP;
-                 disp_data_right1 <= 8'hff;
-                 disp_data_right0 <= 8'hff;
-               
-                       
-                    end
-        
-                    MOVE_DOWN: begin
-                       MOVE_DOWN_3s<= MOVE_DOWN_3s + 1'b1;
-                   if(~btn_reg[3]&&(debounce_cnt >= 20-1))
-                       led[2]  <= 1'b1 ;
-                        else if (~btn_reg[0]&&(debounce_cnt >= 20-1))
-                       led[0]  <= 1'b1 ;
-                 disp_data_right2 <= SEG_DOWN;
-                       disp_data_right1 <= 8'hff;
-                       disp_data_right0 <= 8'hff;                    
-                       
-                    end
-        
-                    ARRIVE: begin
-                        led = 16'b0;
-                            
-        
-        
-                    end
 
-                default: ;
-            endcase
-        end
-    end
-    
-    // ============================================================
-    // 蜂鸣器频率生成模块 (使用50MHz系统时钟)
-    // ============================================================
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            buzzer_cnt <= 24'd0;
-            buzzer_reg <= 1'b0;
-        end else begin
-            if (state == PLAY && cycle_cnt != NO_KEY_CYCNT) begin
-                if (buzzer_cnt >= cycle_cnt - 1) begin
-                    buzzer_cnt <= 24'd0;
-                    buzzer_reg <= ~buzzer_reg;
-                end else begin
-                    buzzer_cnt <= buzzer_cnt + 1'b1;
-                end
+            // == 计时器累加策略 ==
+            if (state == S_POWER_ON_INIT || state == S_MOVE_UP || state == S_MOVE_DOWN || state == S_RESET_TO_1F) begin
+                if (run_timer_ms < 3000) run_timer_ms <= run_timer_ms + 1;
             end else begin
-                buzzer_cnt <= 24'd0;
-                buzzer_reg <= 1'b0;
+                run_timer_ms <= 0; 
+            end
+
+            // == 按键盲区独立侦听与记忆机制 (关键得分点) ==
+            if(sw0 && sw11 && state != S_POWER_OFF && state != S_POWER_ON_INIT) begin
+                // 上楼请求 (如果不在IDLE_2F，按下键立刻锁死点亮，并记录方向)
+                if ((btn_fall[15] || btn_fall[12]) && state != S_IDLE_2F) begin
+                    req_up <= 1;
+                    if (btn_fall[15]) led[3] <= 1'b1; // 内呼 2F
+                    if (btn_fall[12]) led[1] <= 1'b1; // 外呼 2F 向下
+                end
+                // 下楼请求 (如果不在IDLE_1F，按下键立刻锁死点亮)
+                if ((btn_fall[3] || btn_fall[0]) && state != S_IDLE_1F) begin
+                    req_down <= 1;
+                    if (btn_fall[3]) led[2] <= 1'b1; // 内呼 1F
+                    if (btn_fall[0]) led[0] <= 1'b1; // 外呼 1F 向上
+                end
+            end
+
+            // == 状态动作行为 ==
+            case (state)
+                S_POWER_OFF: begin
+                    disp_data_right2 <= SEG_alphabet_O; // "O"
+                    disp_data_right1 <= 8'hf;           // "F"
+                    disp_data_right0 <= 8'hf;           // "F"
+                    led[15] <= 1'b1; led[14] <= 1'b0;
+                end
+
+                S_POWER_ON_INIT: begin
+                    disp_data_right2 <= SEG_alphabet_O; // "O"
+                    disp_data_right1 <= SEG_alphabet_N; // "N"
+                    disp_data_right0 <= SEG_OFF;
+                    led[15] <= 1'b0; led[14] <= 1'b1;
+                end
+
+                S_RESET_TO_1F: begin
+                    req_up <= 0; req_down <= 0; led[3:0] <= 0;
+                    disp_data_right2 <= SEG_DOWN; // 强制下行
+                    disp_data_right1 <= (run_timer_ms/1000) % 10; // 秒
+                    disp_data_right0 <= (run_timer_ms/100) % 10;  // 0.1秒精度
+                    mem_state <= S_IDLE_1F;
+                end
+
+                S_IDLE_1F: begin
+                    disp_data_right2 <= SEG_IDLE;
+                    disp_data_right1 <= 8'h0;
+                    disp_data_right0 <= 8'h0; 
+                    req_down <= 0; led[2] <= 0; led[0] <= 0; // 清除下行记忆和对应的灯
+                    mem_state <= S_IDLE_1F;
+                end
+
+                S_IDLE_2F: begin
+                    disp_data_right2 <= SEG_IDLE;
+                    disp_data_right1 <= 8'h0;
+                    disp_data_right0 <= 8'h0; 
+                    req_up <= 0; led[3] <= 0; led[1] <= 0;   // 清除上行记忆和对应的灯
+                    mem_state <= S_IDLE_2F;
+                end
+
+                S_MOVE_UP: begin
+                    disp_data_right2 <= SEG_UP;
+                    disp_data_right1 <= (run_timer_ms/1000) % 10; 
+                    disp_data_right0 <= (run_timer_ms/100) % 10;  
+                end
+
+                S_MOVE_DOWN: begin
+                    disp_data_right2 <= SEG_DOWN;
+                    disp_data_right1 <= (run_timer_ms/1000) % 10; 
+                    disp_data_right0 <= (run_timer_ms/100) % 10;  
+                end
+            endcase
+            
+            // 硬件复位(sw11)清除所有灯和请求
+            if (!sw11) begin
+                req_up <= 0; req_down <= 0; led[3:0] <= 0; led[15:14] <= 0;
             end
         end
     end
-    
-    // 蜂鸣器输出
-    assign buzzer = buzzer_reg;
 
+    assign buzzer = 1'b0; // 蜂鸣器功能在此先占位清零
 
 endmodule

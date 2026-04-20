@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Apr 20 17:51:23 2026
-# Process ID: 409416
+# Start of session at: Mon Apr 20 18:04:30 2026
+# Process ID: 421392
 # Current directory: D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1
 # Command line: vivado.exe -log elevator.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source elevator.tcl
 # Log file: D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/elevator.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 413468 
+INFO: Helper process launched with PID 418456 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 414.270 ; gain = 101.156
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 412.895 ; gain = 100.129
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'elevator' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:23]
 	Parameter SEG_alphabet_O bound to: 8'b00000000 
@@ -46,8 +46,8 @@ INFO: [Synth 8-638] synthesizing module 'elevator' [D:/course/DigitalSystemsExpe
 	Parameter ARRIVE bound to: 4'b1001 
 	Parameter PLAY bound to: 4'b1010 
 	Parameter SCAN_CLK_DIV bound to: 25000 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'dynamic_led3_0' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-409416-LAPTOP-21A831KV/realtime/dynamic_led3_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'dynamic_led3_0' (1#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-409416-LAPTOP-21A831KV/realtime/dynamic_led3_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'dynamic_led3_1' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/realtime/dynamic_led3_1_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dynamic_led3_1' (1#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/realtime/dynamic_led3_1_stub.v:6]
 INFO: [Synth 8-226] default block is never used [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:148]
 INFO: [Synth 8-226] default block is never used [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:163]
 WARNING: [Synth 8-5788] Register DOOR_OPEN_1s_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:336]
@@ -61,7 +61,7 @@ WARNING: [Synth 8-5788] Register led_reg in module elevator is has both Set and 
 WARNING: [Synth 8-6014] Unused sequential element buzzer_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:429]
 INFO: [Synth 8-256] done synthesizing module 'elevator' (2#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 466.309 ; gain = 153.195
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 465.395 ; gain = 152.629
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -71,15 +71,15 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 466.309 ; gain = 153.195
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 465.395 ; gain = 152.629
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-409416-LAPTOP-21A831KV/dcp1/dynamic_led3_0_in_context.xdc] for cell 'uu0'
-Finished Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-409416-LAPTOP-21A831KV/dcp1/dynamic_led3_0_in_context.xdc] for cell 'uu0'
+Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/dcp1/dynamic_led3_1_in_context.xdc] for cell 'uu0'
+Finished Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/dcp1/dynamic_led3_1_in_context.xdc] for cell 'uu0'
 Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc]
 Finished Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/elevator_propImpl.xdc].
@@ -89,23 +89,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 795.410 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 793.090 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 795.410 ; gain = 482.297
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 795.410 ; gain = 482.297
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for uu0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 795.410 ; gain = 482.297
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'elevator'
 INFO: [Synth 8-5544] ROM "btn_reg" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -146,7 +146,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 WARNING: [Synth 8-327] inferring latch for variable 'current_floor_reg' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:251]
 WARNING: [Synth 8-327] inferring latch for variable 'target_floor_reg' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:194]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 795.410 ; gain = 482.297
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -278,7 +278,7 @@ INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[4]' (FDE) to 'disp_d
 INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[2]' (FDE) to 'disp_data_right0_reg[3]'
 INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[4]' (FDE) to 'disp_data_right0_reg[7]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 795.410 ; gain = 482.297
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -290,13 +290,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 796.805 ; gain = 483.691
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 797.324 ; gain = 484.211
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 793.090 ; gain = 480.324
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -308,7 +308,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -332,7 +332,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -345,7 +345,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -357,25 +357,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -385,14 +385,14 @@ Report BlackBoxes:
 +------+---------------+----------+
 |      |BlackBox name  |Instances |
 +------+---------------+----------+
-|1     |dynamic_led3_0 |         1|
+|1     |dynamic_led3_1 |         1|
 +------+---------------+----------+
 
 Report Cell Usage: 
 +------+---------------+------+
 |      |Cell           |Count |
 +------+---------------+------+
-|1     |dynamic_led3_0 |     1|
+|1     |dynamic_led3_1 |     1|
 |2     |BUFG           |     2|
 |3     |CARRY4         |    32|
 |4     |LUT1           |     7|
@@ -416,11 +416,11 @@ Report Instance Areas:
 |1     |top      |       |   436|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 9 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 818.531 ; gain = 176.316
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 818.531 ; gain = 505.418
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 811.039 ; gain = 170.578
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 41 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -433,8 +433,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 72 Infos, 23 Warnings, 9 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 818.531 ; gain = 516.895
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 811.039 ; gain = 509.785
 INFO: [Common 17-1381] The checkpoint 'D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/elevator.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file elevator_utilization_synth.rpt -pb elevator_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 818.531 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 20 17:51:47 2026...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 811.039 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 20 18:04:54 2026...

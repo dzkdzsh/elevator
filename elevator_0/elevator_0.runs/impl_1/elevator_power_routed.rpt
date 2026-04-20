@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Mon Apr 20 17:52:25 2026
+| Date             : Mon Apr 20 18:05:35 2026
 | Host             : LAPTOP-21A831KV running 64-bit major release  (build 9200)
 | Command          : report_power -file elevator_power_routed.rpt -pb elevator_power_summary_routed.pb -rpx elevator_power_routed.rpx
 | Design           : elevator
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 44.549 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 45.098 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 44.063                           |
+| Dynamic (W)              | 44.612                           |
 | Device Static (W)        | 0.486                            |
 | Effective TJA (C/W)      | 4.9                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.876 |      463 |       --- |             --- |
-|   LUT as Logic |     0.742 |      192 |     20800 |            0.92 |
+| Slice Logic    |     0.882 |      463 |       --- |             --- |
+|   LUT as Logic |     0.747 |      192 |     20800 |            0.92 |
 |   CARRY4       |     0.070 |       38 |      8150 |            0.47 |
 |   Register     |     0.055 |      209 |     41600 |            0.50 |
 |   BUFG         |     0.010 |        2 |        32 |            6.25 |
 |   Others       |     0.000 |        6 |       --- |             --- |
-| Signals        |     1.205 |      412 |       --- |             --- |
-| I/O            |    41.982 |       39 |       170 |           22.94 |
+| Signals        |     1.215 |      412 |       --- |             --- |
+| I/O            |    42.514 |       39 |       170 |           22.94 |
 | Static Power   |     0.486 |          |           |                 |
-| Total          |    44.549 |          |           |                 |
+| Total          |    45.098 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     2.446 |       2.105 |      0.341 |
-| Vccaux    |       1.800 |     1.591 |       1.538 |      0.053 |
-| Vcco33    |       3.300 |    11.877 |      11.876 |      0.001 |
+| Vccint    |       1.000 |     2.462 |       2.121 |      0.341 |
+| Vccaux    |       1.800 |     1.610 |       1.557 |      0.053 |
+| Vcco33    |       3.300 |    12.028 |      12.027 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,9 +138,9 @@ Table of Contents
 +----------+-----------+
 | Name     | Power (W) |
 +----------+-----------+
-| elevator |    44.063 |
-|   uu0    |     0.959 |
-|     inst |     0.959 |
+| elevator |    44.612 |
+|   uu0    |     0.975 |
+|     inst |     0.975 |
 +----------+-----------+
 
 

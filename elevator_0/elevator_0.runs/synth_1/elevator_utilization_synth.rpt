@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Mon Apr 20 17:51:47 2026
+| Date         : Mon Apr 20 18:04:54 2026
 | Host         : LAPTOP-21A831KV running 64-bit major release  (build 9200)
 | Command      : report_utilization -file elevator_utilization_synth.rpt -pb elevator_utilization_synth.pb
 | Design       : elevator
@@ -169,7 +169,7 @@ Table of Contents
 +----------------+------+
 |    Ref Name    | Used |
 +----------------+------+
-| dynamic_led3_0 |    1 |
+| dynamic_led3_1 |    1 |
 +----------------+------+
 
 
