@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Mon Apr 20 18:04:54 2026
+| Date         : Mon Apr 20 21:17:32 2026
 | Host         : LAPTOP-21A831KV running 64-bit major release  (build 9200)
 | Command      : report_utilization -file elevator_utilization_synth.rpt -pb elevator_utilization_synth.pb
 | Design       : elevator
@@ -30,12 +30,12 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  166 |     0 |     20800 |  0.80 |
-|   LUT as Logic          |  166 |     0 |     20800 |  0.80 |
+| Slice LUTs*             | 1242 |     0 |     20800 |  5.97 |
+|   LUT as Logic          | 1242 |     0 |     20800 |  5.97 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  181 |     0 |     41600 |  0.44 |
-|   Register as Flip Flop |  179 |     0 |     41600 |  0.43 |
-|   Register as Latch     |    2 |     0 |     41600 | <0.01 |
+| Slice Registers         |  141 |     0 |     41600 |  0.34 |
+|   Register as Flip Flop |  141 |     0 |     41600 |  0.34 |
+|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -54,10 +54,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 32    |          Yes |           - |          Set |
-| 73    |          Yes |           - |        Reset |
+| 0     |          Yes |           - |          Set |
+| 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 76    |          Yes |       Reset |            - |
+| 141   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   39 |     0 |       170 | 22.94 |
+| Bonded IOB                  |   40 |     0 |       170 | 23.53 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         5 |  0.00 |
@@ -146,19 +146,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |   78 |                 LUT |
-| FDRE     |   76 |        Flop & Latch |
-| FDCE     |   71 |        Flop & Latch |
-| OBUF     |   32 |                  IO |
-| FDPE     |   32 |        Flop & Latch |
-| CARRY4   |   32 |          CarryLogic |
-| LUT6     |   26 |                 LUT |
-| LUT5     |   24 |                 LUT |
-| LUT4     |   20 |                 LUT |
-| LUT3     |   16 |                 LUT |
-| LUT1     |    7 |                 LUT |
-| IBUF     |    7 |                  IO |
-| LDCE     |    2 |        Flop & Latch |
+| LUT6     |  425 |                 LUT |
+| LUT3     |  334 |                 LUT |
+| LUT2     |  264 |                 LUT |
+| LUT5     |  250 |                 LUT |
+| CARRY4   |  231 |          CarryLogic |
+| LUT4     |  201 |                 LUT |
+| FDRE     |  141 |        Flop & Latch |
+| LUT1     |   71 |                 LUT |
+| OBUF     |   33 |                  IO |
+| IBUF     |    5 |                  IO |
+| OBUFT    |    2 |                  IO |
 | BUFG     |    2 |               Clock |
 +----------+------+---------------------+
 
@@ -166,11 +164,9 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+----------------+------+
-|    Ref Name    | Used |
-+----------------+------+
-| dynamic_led3_1 |    1 |
-+----------------+------+
++----------+------+
+| Ref Name | Used |
++----------+------+
 
 
 9. Instantiated Netlists

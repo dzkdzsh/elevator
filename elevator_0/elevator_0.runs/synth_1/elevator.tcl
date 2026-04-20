@@ -23,17 +23,16 @@ create_project -in_memory -part xc7a35tftg256-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.cache/wt [current_project]
 set_property parent.project_path D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths d:/course/DigitalSystemsExperiment2/fpga/dynamic_led3 [current_project]
 set_property ip_output_repo d:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v
-read_ip -quiet d:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/ip/dynamic_led3_1_3/dynamic_led3_1.xci
-
+read_verilog -library xil_defaultlib {
+  D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/dynamic_led6.v
+  D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v
+}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

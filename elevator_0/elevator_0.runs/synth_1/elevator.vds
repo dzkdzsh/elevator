@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Apr 20 18:04:30 2026
-# Process ID: 421392
+# Start of session at: Mon Apr 20 21:17:02 2026
+# Process ID: 525616
 # Current directory: D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1
 # Command line: vivado.exe -log elevator.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source elevator.tcl
 # Log file: D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/elevator.vds
@@ -15,53 +15,35 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 418456 
+INFO: Helper process launched with PID 525452 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 412.895 ; gain = 100.129
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 402.543 ; gain = 102.090
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'elevator' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:23]
+INFO: [Synth 8-638] synthesizing module 'elevator' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:3]
 	Parameter SEG_alphabet_O bound to: 8'b00000000 
 	Parameter SEG_alphabet_N bound to: 8'b00010100 
 	Parameter SEG_DP bound to: 8'b00010000 
 	Parameter SEG_UP bound to: 8'b00010001 
 	Parameter SEG_DOWN bound to: 8'b00010010 
 	Parameter SEG_IDLE bound to: 8'b00010011 
-	Parameter DO_CYCNT bound to: 47780 - type: integer 
-	Parameter RE_CYCNT bound to: 42580 - type: integer 
-	Parameter MI_CYCNT bound to: 211 - type: integer 
-	Parameter FA_CYCNT bound to: 35820 - type: integer 
-	Parameter SOL_CYCNT bound to: 31890 - type: integer 
-	Parameter LA_CYCNT bound to: 28410 - type: integer 
-	Parameter SI_CYCNT bound to: 25300 - type: integer 
-	Parameter NO_KEY_CYCNT bound to: 0 - type: integer 
-	Parameter POWER_OFF bound to: 4'b0000 
-	Parameter POWER_ON_INIT bound to: 4'b0001 
-	Parameter IDLE bound to: 4'b0010 
-	Parameter DEBOUNCE bound to: 4'b0011 
-	Parameter DOOR_OPEN bound to: 4'b0100 
-	Parameter DOOR_WAIT bound to: 4'b0101 
-	Parameter DOOR_CLOSE bound to: 4'b0110 
-	Parameter MOVE_UP bound to: 4'b0111 
-	Parameter MOVE_DOWN bound to: 4'b1000 
-	Parameter ARRIVE bound to: 4'b1001 
-	Parameter PLAY bound to: 4'b1010 
+	Parameter SEG_OFF bound to: 8'b11111111 
+	Parameter S_POWER_OFF bound to: 4'b0000 
+	Parameter S_POWER_ON_INIT bound to: 4'b0001 
+	Parameter S_RESET_TO_1F bound to: 4'b0010 
+	Parameter S_IDLE_1F bound to: 4'b0011 
+	Parameter S_IDLE_2F bound to: 4'b0100 
+	Parameter S_MOVE_UP bound to: 4'b0101 
+	Parameter S_MOVE_DOWN bound to: 4'b0110 
+	Parameter S_DOOR_1F bound to: 4'b0111 
+	Parameter S_DOOR_2F bound to: 4'b1000 
 	Parameter SCAN_CLK_DIV bound to: 25000 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'dynamic_led3_1' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/realtime/dynamic_led3_1_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'dynamic_led3_1' (1#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/realtime/dynamic_led3_1_stub.v:6]
-INFO: [Synth 8-226] default block is never used [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:148]
-INFO: [Synth 8-226] default block is never used [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:163]
-WARNING: [Synth 8-5788] Register DOOR_OPEN_1s_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:336]
-WARNING: [Synth 8-5788] Register DOOR_WAIT_1s_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:337]
-WARNING: [Synth 8-5788] Register DOOR_CLOSE_1s_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:338]
-WARNING: [Synth 8-5788] Register MOVE_DOWN_3s_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:340]
-WARNING: [Synth 8-5788] Register disp_data_right2_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:56]
-WARNING: [Synth 8-5788] Register disp_data_right1_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:55]
-WARNING: [Synth 8-5788] Register disp_data_right0_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:54]
-WARNING: [Synth 8-5788] Register led_reg in module elevator is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:346]
-WARNING: [Synth 8-6014] Unused sequential element buzzer_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:429]
-INFO: [Synth 8-256] done synthesizing module 'elevator' (2#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:23]
+INFO: [Synth 8-638] synthesizing module 'dynamic_led6' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/dynamic_led6.v:3]
+INFO: [Synth 8-256] done synthesizing module 'dynamic_led6' (1#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/dynamic_led6.v:3]
+INFO: [Synth 8-226] default block is never used [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:90]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:238]
+INFO: [Synth 8-256] done synthesizing module 'elevator' (2#1) [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:3]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 465.395 ; gain = 152.629
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 454.363 ; gain = 153.910
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -71,15 +53,13 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 465.395 ; gain = 152.629
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 454.363 ; gain = 153.910
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/dcp1/dynamic_led3_1_in_context.xdc] for cell 'uu0'
-Finished Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/.Xil/Vivado-421392-LAPTOP-21A831KV/dcp1/dynamic_led3_1_in_context.xdc] for cell 'uu0'
 Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc]
 Finished Parsing XDC File [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/elevator_propImpl.xdc].
@@ -89,64 +69,33 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 793.090 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 783.871 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 783.871 ; gain = 483.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 783.871 ; gain = 483.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for uu0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 783.871 ; gain = 483.418
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'elevator'
-INFO: [Synth 8-5544] ROM "btn_reg" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "current_floor" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "debounce_cnt" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "POWER_ON_INIT_1s" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "MOVE_UP_3s" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "DOOR_OPEN_1s" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "DOOR_WAIT_1s" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "DOOR_CLOSE_1s" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "MOVE_DOWN_3s" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5587] ROM size for "disp_data_right2" is below threshold of ROM address width. It will be mapped to LUTs
-INFO: [Synth 8-5546] ROM "led" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element scan_clk_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:123]
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-               POWER_OFF |                             0000 |                            00000
-           POWER_ON_INIT |                             0001 |                            00001
-                    IDLE |                             0010 |                            00010
-                DEBOUNCE |                             0011 |                            00011
-               DOOR_OPEN |                             0100 |                            00100
-               DOOR_WAIT |                             0101 |                            00101
-              DOOR_CLOSE |                             0110 |                            00110
-                 MOVE_UP |                             0111 |                            00111
-               MOVE_DOWN |                             1000 |                            01000
-                  ARRIVE |                             1001 |                            01001
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'elevator'
-WARNING: [Synth 8-327] inferring latch for variable 'current_floor_reg' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:251]
-WARNING: [Synth 8-327] inferring latch for variable 'target_floor_reg' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:194]
+INFO: [Synth 8-5587] ROM size for "seg_base" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "clk_div" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4471] merging register 'disp_data_right4_reg[8:0]' into 'disp_data_right5_reg[8:0]' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:38]
+WARNING: [Synth 8-6014] Unused sequential element disp_data_right4_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:38]
+INFO: [Synth 8-5544] ROM "btn_reg_last" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element scan_clk_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:75]
+WARNING: [Synth 8-6014] Unused sequential element buzz_freq_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:131]
+WARNING: [Synth 8-6014] Unused sequential element run_timer_ms_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:214]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 783.871 ; gain = 483.418
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -159,26 +108,36 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     16 Bit       Adders := 7     
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     25 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
-	               16 Bit    Registers := 10    
-	                9 Bit    Registers := 3     
+	               25 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+	                9 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
+	                1 Bit    Registers := 5     
 +---Muxes : 
-	   5 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 4     
-	  10 Input     16 Bit        Muxes := 10    
-	  10 Input      9 Bit        Muxes := 3     
+	   2 Input     25 Bit        Muxes := 1     
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 5     
+	   7 Input     16 Bit        Muxes := 1     
+	  10 Input     16 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 4     
+	  23 Input      8 Bit        Muxes := 1     
+	   7 Input      6 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
-	  25 Input      4 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 9     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
 	  10 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 2     
-	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 6     
-	  10 Input      1 Bit        Muxes := 9     
+	  10 Input      1 Bit        Muxes := 7     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -189,26 +148,43 @@ Hierarchical RTL Component report
 Module elevator 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     16 Bit       Adders := 7     
+	   2 Input     32 Bit       Adders := 1     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
-	               16 Bit    Registers := 10    
-	                9 Bit    Registers := 3     
+	               16 Bit    Registers := 5     
+	                9 Bit    Registers := 5     
+	                4 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   5 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 4     
-	  10 Input     16 Bit        Muxes := 10    
-	  10 Input      9 Bit        Muxes := 3     
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 5     
+	   7 Input     16 Bit        Muxes := 1     
+	  10 Input     16 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 4     
 	   4 Input      4 Bit        Muxes := 1     
-	  25 Input      4 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 9     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
 	  10 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 2     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
-	  10 Input      1 Bit        Muxes := 9     
+	   2 Input      2 Bit        Muxes := 3     
+	  10 Input      1 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 5     
+Module dynamic_led6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     25 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               25 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     25 Bit        Muxes := 1     
+	  23 Input      8 Bit        Muxes := 1     
+	   7 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -224,61 +200,99 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element scan_clk_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:123]
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\current_floor_reg[2] )
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[2]' (FDE) to 'disp_data_right1_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[3]' (FDE) to 'disp_data_right1_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[5]' (FDE) to 'disp_data_right1_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[6]' (FDE) to 'disp_data_right1_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[7]' (FDE) to 'disp_data_right1_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[8]' (FDE) to 'disp_data_right1_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[0]' (FDE) to 'disp_data_right1_reg[1]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[1]' (FDE) to 'disp_data_right1_reg[3]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[5]' (FDE) to 'disp_data_right1_reg[6]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[6]' (FDE) to 'disp_data_right1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[8]' (FDE) to 'disp_data_right0_reg[8]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[0]' (FDE) to 'disp_data_right0_reg[3]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[1]' (FDE) to 'disp_data_right0_reg[3]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[2]' (FDE) to 'disp_data_right0_reg[3]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[4]' (FDE) to 'disp_data_right0_reg[7]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[5]' (FDE) to 'disp_data_right0_reg[7]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[6]' (FDE) to 'disp_data_right0_reg[7]'
+INFO: [Synth 8-5546] ROM "clk_div" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "seg_base" is below threshold of ROM address width. It will be mapped to LUTs
+WARNING: [Synth 8-6014] Unused sequential element scan_clk_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:75]
+WARNING: [Synth 8-6014] Unused sequential element run_timer_ms_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:214]
+WARNING: [Synth 8-6014] Unused sequential element buzz_freq_cnt_reg was removed.  [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:131]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mem_state_reg[3] )
+INFO: [Synth 8-3886] merging instance 'mem_state_reg[0]' (FDE) to 'mem_state_reg[1]'
+INFO: [Synth 8-3886] merging instance 'led_reg[4]' (FDE) to 'led_reg[5]'
+INFO: [Synth 8-3886] merging instance 'led_reg[5]' (FDE) to 'led_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\led_reg[6] )
+INFO: [Synth 8-3886] merging instance 'disp_data_right3_reg[6]' (FDE) to 'disp_data_right3_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[6]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[6]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[6]' (FDE) to 'disp_data_right0_reg[4]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[6]' (FDE) to 'disp_data_right5_reg[0]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right3_reg[7]' (FDE) to 'disp_data_right3_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[7]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[7]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[7]' (FDE) to 'disp_data_right0_reg[4]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[7]' (FDE) to 'disp_data_right5_reg[0]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right3_reg[5]' (FDE) to 'disp_data_right3_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[5]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[5]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right0_reg[5]' (FDE) to 'disp_data_right0_reg[4]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[5]' (FDE) to 'disp_data_right5_reg[0]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[0]' (FDE) to 'disp_data_right5_reg[1]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right3_reg[3]' (FDE) to 'disp_data_right3_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[3]' (FDE) to 'disp_data_right2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[3]' (FDE) to 'disp_data_right5_reg[1]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right3_reg[2]' (FDE) to 'disp_data_right3_reg[4]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[2]' (FDE) to 'disp_data_right5_reg[1]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right5_reg[1]' (FDE) to 'disp_data_right5_reg[4]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\disp_data_right5_reg[4] )
+INFO: [Synth 8-3886] merging instance 'disp_data_right3_reg[8]' (FDE) to 'disp_data_right2_reg[8]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[8]' (FDE) to 'disp_data_right0_reg[8]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\disp_data_right0_reg[8] )
-INFO: [Synth 8-3886] merging instance 'led_reg[4]' (FDCE) to 'led_reg[5]'
-INFO: [Synth 8-3886] merging instance 'led_reg[5]' (FDCE) to 'led_reg[6]'
-INFO: [Synth 8-3886] merging instance 'led_reg[6]' (FDCE) to 'led_reg[7]'
-INFO: [Synth 8-3886] merging instance 'led_reg[7]' (FDCE) to 'led_reg[8]'
-INFO: [Synth 8-3886] merging instance 'led_reg[8]' (FDCE) to 'led_reg[9]'
-INFO: [Synth 8-3886] merging instance 'led_reg[9]' (FDCE) to 'led_reg[10]'
-INFO: [Synth 8-3886] merging instance 'led_reg[10]' (FDCE) to 'led_reg[11]'
-INFO: [Synth 8-3886] merging instance 'led_reg[11]' (FDCE) to 'led_reg[12]'
-INFO: [Synth 8-3886] merging instance 'led_reg[12]' (FDCE) to 'led_reg[13]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\led_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (buzzer_reg_reg)
-WARNING: [Synth 8-3332] Sequential element (current_floor_reg[2]) is unused and will be removed from module elevator.
-WARNING: [Synth 8-3332] Sequential element (target_floor_reg[2]) is unused and will be removed from module elevator.
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'target_floor_reg[2]/Q' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-WARNING: [Synth 8-3332] Sequential element (target_floor_reg[1]) is unused and will be removed from module elevator.
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'target_floor_reg[1]/Q' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-WARNING: [Synth 8-3332] Sequential element (target_floor_reg[0]) is unused and will be removed from module elevator.
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'target_floor_reg[0]/Q' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'VCC' [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/new/elevator.v:325]
-WARNING: [Synth 8-3332] Sequential element (target_floor_reg[2]__0) is unused and will be removed from module elevator.
-WARNING: [Synth 8-3332] Sequential element (target_floor_reg[1]__0) is unused and will be removed from module elevator.
-WARNING: [Synth 8-3332] Sequential element (target_floor_reg[0]__0) is unused and will be removed from module elevator.
-WARNING: [Synth 8-3332] Sequential element (buzzer_reg_reg) is unused and will be removed from module elevator.
-WARNING: [Synth 8-3332] Sequential element (led_reg[13]) is unused and will be removed from module elevator.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\disp_data_right5_reg[8] )
+WARNING: [Synth 8-3332] Sequential element (mem_state_reg[3]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[14]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[13]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[11]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[10]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[9]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[8]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[7]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[6]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[5]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[4]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[2]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_temp_reg[1]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[14]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[13]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[11]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[10]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[9]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[8]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[7]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[6]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[5]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[4]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[2]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_reg[1]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[14]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[13]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[11]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[10]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[9]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[8]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[7]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[6]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[5]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[4]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[2]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_reg_last_reg[1]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[14]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[13]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[11]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[10]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[9]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[8]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[7]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[6]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[5]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[4]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[2]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (btn_fall_reg[1]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (led_reg[6]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (disp_data_right5_reg[8]) is unused and will be removed from module elevator.
+WARNING: [Synth 8-3332] Sequential element (disp_data_right5_reg[4]) is unused and will be removed from module elevator.
 WARNING: [Synth 8-3332] Sequential element (disp_data_right0_reg[8]) is unused and will be removed from module elevator.
-INFO: [Synth 8-3886] merging instance 'disp_data_right2_reg[4]' (FDE) to 'disp_data_right1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[2]' (FDE) to 'disp_data_right0_reg[3]'
-INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[4]' (FDE) to 'disp_data_right0_reg[7]'
+INFO: [Synth 8-3886] merging instance 'disp_data_right1_reg[4]' (FDE) to 'disp_data_right0_reg[4]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 783.871 ; gain = 483.418
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -290,13 +304,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 818.234 ; gain = 517.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 793.090 ; gain = 480.324
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 819.922 ; gain = 519.469
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -308,7 +322,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -332,7 +346,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -345,7 +359,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -357,84 +371,81 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+---------------+----------+
-|      |BlackBox name  |Instances |
-+------+---------------+----------+
-|1     |dynamic_led3_1 |         1|
-+------+---------------+----------+
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------------+------+
-|      |Cell           |Count |
-+------+---------------+------+
-|1     |dynamic_led3_1 |     1|
-|2     |BUFG           |     2|
-|3     |CARRY4         |    32|
-|4     |LUT1           |     7|
-|5     |LUT2           |    78|
-|6     |LUT3           |    16|
-|7     |LUT4           |    20|
-|8     |LUT5           |    24|
-|9     |LUT6           |    26|
-|10    |FDCE           |    71|
-|11    |FDPE           |    32|
-|12    |FDRE           |    76|
-|13    |LD             |     2|
-|14    |IBUF           |     7|
-|15    |OBUF           |    32|
-+------+---------------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |   231|
+|3     |LUT1   |    71|
+|4     |LUT2   |   264|
+|5     |LUT3   |   334|
+|6     |LUT4   |   201|
+|7     |LUT5   |   250|
+|8     |LUT6   |   425|
+|9     |FDRE   |   141|
+|10    |IBUF   |     5|
+|11    |OBUF   |    33|
+|12    |OBUFT  |     2|
++------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |   436|
-+------+---------+-------+------+
++------+---------+-------------+------+
+|      |Instance |Module       |Cells |
++------+---------+-------------+------+
+|1     |top      |             |  1959|
+|2     |  uu0    |dynamic_led6 |    72|
++------+---------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 956.477 ; gain = 656.023
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 9 critical warnings and 14 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 811.039 ; gain = 170.578
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 811.039 ; gain = 498.273
+Synthesis finished with 0 errors, 0 critical warnings and 60 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 956.477 ; gain = 326.516
+Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 956.477 ; gain = 656.023
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 41 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 236 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'elevator' is not ideal for floorplanning, since the cellview 'elevator' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 2 instances were transformed.
-  LD => LDCE: 2 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-72 Infos, 23 Warnings, 9 Critical Warnings and 0 Errors encountered.
+57 Infos, 61 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 811.039 ; gain = 509.785
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 956.477 ; gain = 668.234
 INFO: [Common 17-1381] The checkpoint 'D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/elevator.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file elevator_utilization_synth.rpt -pb elevator_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 811.039 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 20 18:04:54 2026...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 956.477 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 20 21:17:32 2026...

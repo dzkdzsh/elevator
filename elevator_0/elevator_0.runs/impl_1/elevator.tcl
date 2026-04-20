@@ -72,11 +72,9 @@ set rc [catch {
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.cache/wt [current_project]
   set_property parent.project_path D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.xpr [current_project]
-  set_property ip_repo_paths D:/course/DigitalSystemsExperiment2/fpga/dynamic_led3 [current_project]
   set_property ip_output_repo D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   add_files -quiet D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.runs/synth_1/elevator.dcp
-  read_ip -quiet d:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/sources_1/ip/dynamic_led3_1_3/dynamic_led3_1.xci
   read_xdc D:/course/DigitalSystemsExperiment2/fpga/elevator/elevator_0/elevator_0.srcs/constrs_1/new/cons.xdc
   link_design -top elevator -part xc7a35tftg256-1
   close_msg_db -file init_design.pb

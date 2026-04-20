@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1776679467">
+<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1776691018">
   <File Type="PA-TCL" Name="elevator.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="elevator_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="elevator_reports.tcl"/>
@@ -11,6 +11,13 @@
   <File Type="VDS-TIMING-PB" Name="elevator_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/dynamic_led6.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/elevator.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -42,5 +49,4 @@
     </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="dynamic_led3_1"/>
 </GenRun>
